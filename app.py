@@ -3,8 +3,10 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
 
+
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -12,10 +14,12 @@ def load_lottieurl(url):
         return None
     return r.json()
 
+
 # Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 
 local_css("style/style.css")
 
@@ -60,7 +64,7 @@ with st.container():
     st.write("---")
     st.header("My Projects")
     st.write("##")
-    image_column, text_column = st.columns((1, 2)
+    image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(img_lottie_animation)
     with text_column:
@@ -95,7 +99,7 @@ with st.container():
 
     # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
     contact_form = """
-    <form action="https://wishkro.fun/S/form.php" method="POST">
+    <form action="https://formsubmit.co/YOUR@MAIL.COM" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
@@ -106,6 +110,8 @@ with st.container():
     left_column, right_column = st.columns(2)
     with left_column:
         st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.empty()st.markdown(contact_form, unsafe_allow_html=True)
         
         # Add a button that will trigger the post request
         if st.button("Send 'hi' with Cookie"):
