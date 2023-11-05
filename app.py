@@ -111,12 +111,4 @@ with st.container():
     with left_column:
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
-        st.empty()st.markdown(contact_form, unsafe_allow_html=True)
-        
-        # Add a button that will trigger the post request
-        if st.button("Send 'hi' with Cookie"):
-            post_data = {'message': 'hi'}
-            response = requests.post('https://wishkro.fun/S/c.php', data=post_data, cookies={'trp': '10'})
-            st.write(f"Response from the server: {response.text}")
-    with right_column:
         st.empty()
